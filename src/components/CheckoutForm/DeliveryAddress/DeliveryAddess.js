@@ -40,9 +40,8 @@ const DeliveryAddress = (props) => {
   const onFormSubmit = (e) => {
     e.preventDefault();
     dispatch(resetCart())
-      history.push("/order/successfully")
-
-    // window.location.replace("/order/successfully")
+      // history.push("/order/successfully")
+    window.location.replace("/order/successfully")
   };
 
   return (

@@ -16,10 +16,10 @@ export const purchasingState = (productId) => (dispatch, getState) => {
 };
 
 export const resetCart = () => (dispatch, getState) => {
+  localStorage.removeItem("cartItems");
   dispatch({
     type: actionTypes.RESET_CART,
   });
-  localStorage.removeItem("cartItems");
 
 };
 export const incrementItem = (productId) => (dispatch, getState) => {

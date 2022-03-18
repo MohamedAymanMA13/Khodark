@@ -1,5 +1,4 @@
 import * as actionTypes from "../actions/actionTypes/addToCartTypes";
-import * as actionT from "../actions/actionTypes/orderTypes";
 
 const initialState = {
   cartData: localStorage.getItem("cartItems")
@@ -105,7 +104,7 @@ const cartReducer = (state = initialState, action) => {
         ...state,
         customerAddress: action.payload,
       };
-    case actionT.CLEAR_CART:
+    case actionTypes.CLEAR_CART:
       return {
         ...state,
         cartData: {
