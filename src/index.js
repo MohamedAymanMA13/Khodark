@@ -11,16 +11,8 @@ import productListReducer, {
   searchFilterReducer,
 } from "./store/reducer/productsListReducer";
 import cartReducer from "./store/reducer/cartReducer";
-import {
-  orderReducer,
-  orderDetailsReducer,
-} from "./store/reducer/orderReducer";
-import userSignIn from "./store/reducer/userSignIn";
-import {
-  getWishlistReducer,
-  removeFromWishlist,
-  wishlistReducer,
-} from "./store/reducer/wishlistReducer";
+
+
 import axios from "axios";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -28,12 +20,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
   products: productListReducer,
   cart: cartReducer,
-  userSignIn,
-  newOrder: orderReducer,
-  orderDetails: orderDetailsReducer,
-  wishlist: wishlistReducer,
-  fullWishlist: getWishlistReducer,
-  removeFromWishlist,
   searchFilter: searchFilterReducer,
 });
 

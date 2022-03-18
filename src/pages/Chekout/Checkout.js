@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import PhoneVerification from "../../components/CheckoutForm/PhoneVerification/PhoneVerification";
 import DeliveryAddress from "../../components/CheckoutForm/DeliveryAddress/DeliveryAddess";
-import Payment from "../../components/CheckoutForm/Payment/Payment";
 import "./Checkout.css";
 import CheckOutOrder from "../../components/CheckoutForm/CheckoutOrder/CheckoutOrder";
 
 import "./Checkout.css";
 
 const Checkout = (props) => {
-  const userSignIn = useSelector((state) => state.userSignIn);
-  const { userInfo } = userSignIn;
 
   const cart = useSelector((state) => state.cart);
 
   const [checkoutStep, setCheckoutStep] = useState("checkout-step--active");
 
-  if (cart.cartData.totalQuantity === 0) {
-    props.history.push("/");
-  }
 
+  useEffect(()=>{
+      if (cart.cartData.totalQuantity === 0) {
+      props.history.push("/");
+    }
+  },[])
   const taxes = (cart.cartData.cartTotal * 5) / 100;
 
   const shipping = 0;

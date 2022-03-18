@@ -125,7 +125,6 @@ const cartReducer = (state = initialState, action) => {
         sideBarOpen: false,
       };
       case actionTypes.RESET_CART:
-        console.log("RESET_CART")
         return {
           ...state,
           cartData:{

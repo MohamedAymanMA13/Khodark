@@ -10,13 +10,8 @@ import { Route,useHistory  } from "react-router-dom";
 import "./DeliveryAddress.css";
 
 const DeliveryAddress = (props) => {
-  const customerAddress = useSelector((state) => state.cart.customerAddress);
-
-  const user = useSelector((state) => state.userSignIn);
   const dispatch = useDispatch();
-const history=useHistory()
-  const { loading, userInfo, error } = user;
-
+  const history=useHistory()
 
   const [userData, setUserData] = useState({
     name: "",
@@ -45,7 +40,9 @@ const history=useHistory()
   const onFormSubmit = (e) => {
     e.preventDefault();
     dispatch(resetCart())
-    history.push("/order/successfully")
+      history.push("/order/successfully")
+
+    // window.location.replace("/order/successfully")
   };
 
   return (
@@ -58,15 +55,6 @@ const history=useHistory()
         Delivery Address
       </span>
 
-      {userInfo && !(props.checkoutStep === "checkout-step--active") && (
-        <button
-          onClick={props.addressChange}
-          className="btn delivery_change-btn"
-          data-test-id="address-change-button submit__btn"
-        >
-          Change
-        </button>
-      )}
 
       <div className="checkout-step__body">
         <div className="new-delivery-address-wrapper">
@@ -210,7 +198,6 @@ const history=useHistory()
                 >
                   Finish
                 </button>
-                {loading && <LoadingBox></LoadingBox>}
               </div>
             </div>
           </form>

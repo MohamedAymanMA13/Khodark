@@ -5,7 +5,6 @@ import Header from "./components/Header/Header";
 import HeaderCheckout from "./components/HeaderCheckout/HeaderCheckout";
 import Home from "./pages/Home/Home";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
-import SignIn from "./components/SignIn/SignIn";
 import Checkout from "./pages/Chekout/Checkout";
 import OrderSuccessfully from "./pages/OrderSuccessfully/OrderSuccessfully";
 
@@ -41,7 +40,6 @@ const App = () => {
           <Route exact path="/product/:id" component={ProductDetails} />
         )}
       </main>
-      <SignIn />
       <Footer />
     </div>
   );

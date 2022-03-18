@@ -7,7 +7,7 @@ const vegetablesList = () => async (dispatch, getState) => {
     type: actionTypes.VEGETABLE_LIST_REQUEST,
   });
   try {
-    const  data =await dataJSON.products;
+    let  data = dataJSON.products;
 
     if (localStorage.getItem("cartItems")) {
       const products = getState().cart.cartData.vegetablesCart;
@@ -20,8 +20,11 @@ const vegetablesList = () => async (dispatch, getState) => {
         });
         return data;
       });
+      console.log(data,"datadatadata in iffff")
+    }else{
+      data = dataJSON.products;
     }
-
+    console.log(data,"datadatadatadata out iffff")
     dispatch({
       type: actionTypes.VEGETABLE_LIST_SUCCESS,
       payload: data,

@@ -5,12 +5,6 @@ import { Link } from "react-router-dom";
 import { AddItemPrimary } from "../../components/Buttons/AddItem";
 import { RemoveItemPrimary } from "../../components/Buttons/RemoveItem";
 import { purchasingState } from "../../store/actions/actionCreators/addToCartAction";
-import { signInOpen } from "../../store/actions/actionCreators/signInAction";
-import {
-  addToWishlist,
-  getWishlist,
-  removeFromWishlist,
-} from "../../store/actions/actionCreators/wishlistAction";
 
 import "./Product.css";
 
@@ -18,37 +12,6 @@ const Product = ({ product }, props) => {
   const dispatch = useDispatch();
 
   useSelector((state) => state.cart);
-  const fullWishlist = useSelector((state) => state.fullWishlist);
-  const userSignIn = useSelector((state) => state.userSignIn);
-
-  const { wishlist } = fullWishlist;
-  const { userInfo } = userSignIn;
-
-  const [inWishlist, setInWishlist] = useState(false);
-
-  useEffect(() => {
-    dispatch(getWishlist());
-  }, [dispatch]);
-
-  useEffect(() => {
-    wishlist &&
-      wishlist.map((x) => {
-        if (x.product === product._id) {
-          setInWishlist(true);
-        }
-        return true;
-      });
-  }, [product, wishlist]);
-
-  useEffect(() => {
-    !wishlist && setInWishlist(false);
-  }, [product, wishlist]);
-
-  useEffect(() => {
-    if (userInfo) {
-      dispatch(getWishlist());
-    }
-  }, [userInfo, dispatch]);
 
   return (
     <div key={product._id} className="card">

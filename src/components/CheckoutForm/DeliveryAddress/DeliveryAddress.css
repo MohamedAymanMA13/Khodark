@@ -177,7 +177,9 @@
   margin-top: 24px;
   width: 120px;
 }
-
+.submit__btn{
+  padding: 7px 0!important;
+}
 @media screen and (min-width: 1260px) {
   .btn--inverted-gray:hover {
     background-color: initial;

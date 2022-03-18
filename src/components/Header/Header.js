@@ -16,15 +16,6 @@ const Header = (props) => {
 
   const dispatch = useDispatch();
 
-  const userSignIn = useSelector((state) => state.userSignIn);
-  const cart = useSelector((state) => state.cart);
-  const { userInfo } = userSignIn;
-
-  let user;
-
-  if (userInfo && userInfo.userName) {
-    user = userInfo.userName.split(" ");
-  }
 
   return (
     <header
